@@ -14,6 +14,12 @@
     <style>
       .jumbotron {
         margin: 10px;
+        background-color: #d36f70;
+      }
+
+      #searchBtn {
+        background-color: #69e182;
+        border-color: #69e182;
       }
     </style>
   </head>
@@ -50,13 +56,15 @@
         <div class="card-body" id="popDishes"></div>
       </div>
       <!-- Button trigger modal -->
+      <br /><br />
+      <hr />
       <button
         type="button"
         class="btn btn-primary"
         data-toggle="modal"
         data-target="#exampleModal"
       >
-        Launch demo modal
+        Upload Image
       </button>
 
       <!-- Modal -->
@@ -68,6 +76,9 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+        <!--
+          Modal popup of a form, user must meat all comditions in order to upload a photo
+        -->
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -91,7 +102,7 @@
               />
               <br />
               <br />
-              <!-- \User input for restName id "#restName" -->
+              <!-- User input for restName id "#restName" -->
 
               <input
                 type="text"
@@ -111,7 +122,10 @@
                 >
                   Customer Rating
                 </button>
-                <div class="dropdown-menu">
+                <!--
+                  Customer rating dropdown needs TO BE AN INPUT TO GRWB USER RATING? id "#customerRating"
+                -->
+                <div class="dropdown-menu" id="customerRating">
                   <a class="dropdown-item" href="#!">5</a>
                   <a class="dropdown-item" href="#!">4</a>
                   <a class="dropdown-item" href="#!">3</a>
@@ -119,23 +133,26 @@
                   <a class="dropdown-item" href="#!">1</a>
                 </div>
               </div>
-              <input
-                type="text"
-                id="restName"
-                placeholder="Restaurant Name"
-                style="width: 100%"
-              />
-            </div>
+              <!-- User input restaurant name id "#restName" -->
+              
             <div class="modal-footer">
+              <!--
+                Needs a condition to cancel the upload image function or exit id "#closeBtn"
+              -->
               <button
                 type="button"
+                id="closeBtn"
                 class="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
+              <!--
+                Needs a condition forcing user to fill all fields before uploading image id "#uploadImg
+              -->
+
+              <button type="button" class="btn btn-primary" id="uploadImg">
+                Upload Image
               </button>
             </div>
           </div>
