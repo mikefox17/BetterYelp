@@ -14,20 +14,39 @@
     <style>
       .jumbotron {
         margin: 10px;
-        background-color: #d36f70;
+        background-image: url("assets/images/i1.png")
+        
+      }
+      image {
+        width: 960px;
+        height: 300px;
       }
 
       #searchBtn {
         background-color: #69e182;
         border-color: #69e182;
+        font-weight: bold;
       }
+
+      #uploadImg {
+        background-color:  #69e182;
+        border-color:  #69e182;
+        font-weight: bold;
+      }
+
+      #modalBtn {
+        background-color: #69e182;
+        border-color:  #69e182;
+        font-weight: bold;
+      }
+      
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container text-light">
       <div class="jumbotron">
-        <h1 class="display-3">Hello, world!</h1>
-        <hr />
+        <h1 class="display-3">Better Yelp?</h1>
+        
         <br />
         <div class="input-group">
           <div class="input-group-prepend"></div>
@@ -51,7 +70,7 @@
       </div>
 
       <div class="card" id="card1">
-        <div class="card-header"><h3>Featured Dishes</h3></div>
+        <div class="card-header text-dark"><h3>Featured Dishes</h3></div>
         <!-- JS to populate popular dishes and photos id "#popDishes" -->
         <div class="card-body" id="popDishes"></div>
       </div>
@@ -63,6 +82,7 @@
         class="btn btn-primary"
         data-toggle="modal"
         data-target="#exampleModal"
+        id="modalBtn"
       >
         Upload Image
       </button>
@@ -83,11 +103,13 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <!-- Modal button id "#modalBtn" -->
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close"
+                
               >
                 <span aria-hidden="true">&times;</span>
               </button>
