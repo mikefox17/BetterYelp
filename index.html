@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <style>
+      .jumbotron {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-3">Hello, world!</h1>
+        <hr />
+        <br />
+        <div class="input-group">
+          <div class="input-group-prepend"></div>
+          <!-- Input for food id "#foodSearch" -->
+          <input
+            type="text"
+            class="form-control"
+            id="foodSearch"
+            placeholder="Search Food/Restaurant"
+          />
+          <!-- Input for location id "#locationSearch" -->
+          <input
+            type="text"
+            class="form-control"
+            id="locationSearch"
+            placeholder="Search by location"
+          />
+          <!-- Submit button id "#searchBtn" -->
+          <button class="btn btn-primary" id="searchBtn">Search</button>
+        </div>
+      </div>
+
+      <div class="card" id="card1">
+        <div class="card-header"><h3>Featured Dishes</h3></div>
+        <!-- JS to populate popular dishes and photos id "#popDishes" -->
+        <div class="card-body" id="popDishes"></div>
+      </div>
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- User input for dish name id "#dishName" -->
+            <div class="modal-body">
+              <input
+                type="text"
+                id="dishName"
+                placeholder="Dish Name"
+                style="width: 100%"
+              />
+              <br />
+              <br />
+              <!-- \User input for restName id "#restName" -->
+
+              <input
+                type="text"
+                id="restName"
+                placeholder="Restaurant Name"
+                style="width: 100%"
+              />
+              <br /><br />
+              <div class="dropdown open">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenu4"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Customer Rating
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#!">5</a>
+                  <a class="dropdown-item" href="#!">4</a>
+                  <a class="dropdown-item" href="#!">3</a>
+                  <a class="dropdown-item" href="#!">2</a>
+                  <a class="dropdown-item" href="#!">1</a>
+                </div>
+              </div>
+              <input
+                type="text"
+                id="restName"
+                placeholder="Restaurant Name"
+                style="width: 100%"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"
+  ></script>
+</html>
