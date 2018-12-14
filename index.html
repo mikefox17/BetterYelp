@@ -194,6 +194,13 @@
       </div>
     </div>
   </body>
+  <script>
+  function initAutocomplete() {
+  var input = document.getElementById('locationSearch');
+  new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);</script>
   <script
     src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -209,4 +216,7 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"
   ></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZhqhST3LzYsJ1rKWV1tXYjWU3a901rH8&libraries=places&callback=initAutocomplete"
+         async defer></script>
+  <script src="assets/javascript/app.js"></script>
 </html>
