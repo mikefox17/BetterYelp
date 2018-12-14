@@ -1,0 +1,35 @@
+/* Added google fonts */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Placeholder image, looks better with a bright image instead of solid color background */
+.jumbotron {
+  margin: 10px;
+  background-image: url("../images/i1.png");
+}
+image {
+  width: 960px;
+  height: 300px;
+}
+
+#searchBtn {
+  background-color: #69e182;
+  border-color: #69e182;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+#uploadImg {
+  background-color: #69e182;
+  border-color: #69e182;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+#modalBtn {
+  background-color: #69e182;
+  border-color: #69e182;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
