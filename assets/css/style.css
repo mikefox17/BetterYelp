@@ -5,18 +5,29 @@ html {
 /* Placeholder image, looks better with a bright image instead of solid color background */
 .jumbotron {
   margin: 10px;
-  background-image: url("../images/i1.png");
+  background-image: url("../images/drew-taylor-658070-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: 1100px 400px;
   height: auto;
 }
+#card1 {
+  background-color: #dfe1e2;
+}
+
 image {
   width: 960px;
   height: 300px;
+  
 }
 #searchBtn {
   background-color: #69e182;
   border-color: #69e182;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
+}
+.form-group {
+  background-color: #dfe1e2;
+  background: #dfe1e2;
 }
 #uploadImg {
   background-color: #69e182;
@@ -27,7 +38,9 @@ image {
 
 .popDishesImage {
   height: 40%;
+  width: 80%;
   margin: 5px;
+  border-radius: 10px;
 }
 .dataReturn {
   color: green;
