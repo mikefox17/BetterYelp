@@ -48,3 +48,13 @@ footer {
   text-align: center;
   font-size: 11px;
 }
+
+#card2,
+#searchDishesHeader,
+#searchDishes {
+  visibility: hidden;
+}
+.innerDivs {
+  float: left;
+  color: black;
+}
