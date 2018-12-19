@@ -116,24 +116,25 @@ $("#searchBtn").on("click", function() {
 
   locationarray = location.split(",");
   console.log(locationarray);
-  // locationarray = locationarray.reverse();
-  // console.log(locationarray);
-  // var country = locationarray[0];
-  // var state = locationarray[1];
-  // var city = locationarray[2];
+  locationarray = locationarray.reverse();
+  console.log(locationarray);
+  var country = locationarray[0];
+  var state = locationarray[1].trim();
+  var city = locationarray[2].trim();
 
-  // console.log("Country: "+country);
-  // console.log("State: "+state);
-  // console.log("City: "+city);
+  console.log(country);
+  console.log(state);
+  console.log(city);
 
   var queryURL =
     "https://openmenu.com/api/v2/search.php?" +
     "key=498456f1-0156-11e9-8d62-525400552a35&s=" +
     dish +
     "&" +
-    "postal_code=" +
-    location +
-    "&city=&country=US";
+    "postal_code=&city=" +
+    city +
+    "&country=US";
+
   $.ajax({
     url: queryURL,
     method: "GET"
