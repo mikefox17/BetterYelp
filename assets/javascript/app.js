@@ -299,27 +299,57 @@ $("#searchBtn").on("click", function() {
   document.getElementById("searchDishesHeader").style.visibility = "visible";
   document.getElementById("card2").style.visibility = "visible";
 
+  var dish = document.getElementById("foodSearch").value.trim();
   var location = document.getElementById("locationSearch").value;
-  var dish = document.getElementById("foodSearch").value;
+  var locationInt = parseInt(location);
+  var locSearch = location.search(",");
+  console.log(locSearch);
 
-  locationarray = location.split(",");
-  console.log(locationarray);
-  locationarray = locationarray.reverse();
-  console.log(locationarray);
-  var country = locationarray[0];
-  var state = locationarray[1].trim();
-  var city = locationarray[2].trim();
+  console.log(locationInt);
 
-  console.log(country);
-  console.log(state);
-  console.log(city);
+  if (Number.isInteger(parseInt(locSearch))) {
+    locationarray = location.split(",");
+    console.log(locationarray);
+    locationarray = locationarray.reverse();
+    console.log(locationarray);
+
+    var country = locationarray[0];
+    var city = locationarray[2].trim();
+    var patt1 = /[0-9]/g;
+    var zip = locationarray[1].match(patt1);
+    console.log(zip);
+
+    if (Number.isInteger(parseInt(zip))) {
+      var stateAdd = locationarray[1].trim().split(" ");
+      console.log(stateAdd);
+      var state = stateAdd[0].trim();
+      var zipcode = stateAdd[1].trim();
+
+      console.log("Country: " + country);
+      console.log("State: " + state);
+      console.log("City: " + city);
+      console.log("Zipcode: " + zipcode);
+    } else {
+      var state = locationarray[1].trim();
+      var zipcode = "";
+      console.log("Country: " + country);
+      console.log("State: " + state);
+      console.log("City: " + city);
+      console.log("Zipcode: " + zipcode);
+    }
+  } else if (Number.isInteger(locationInt)) {
+    var zipcode = locationInt;
+    console.log("Zipcode: " + zipcode);
+  }
 
   var queryURL =
     "https://openmenu.com/api/v2/search.php?" +
     "key=498456f1-0156-11e9-8d62-525400552a35&s=" +
     dish +
     "&" +
-    "postal_code=&city=" +
+    "postal_code=" +
+    zipcode +
+    "&city=" +
     city +
     "&country=US";
 
