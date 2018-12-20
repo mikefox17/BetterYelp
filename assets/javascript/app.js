@@ -20,16 +20,22 @@ var image = "";
 
 var popDishes = [
   {
-    Image: "./assets/images/i1.png",
-    dName: "mango cakes",
-    restauraunt: "Kung Fu Tea",
+    Image: "./assets/images/eaters-collective-193459-unsplash.jpg",
+    dName: "Cheese Burger",
+    restauraunt: "Fudruckers",
     rating: 5
   },
   {
-    Image: "./assets/images/i2.png",
-    dName: "Pho",
-    restauraunt: "Pho 24",
-    rating: 5
+    Image: "./assets/images/carissa-gan-76304-unsplash.jpg",
+    dName: "Pizza",
+    restauraunt: "Pizza Hut",
+    rating: 3
+  },
+  { 
+    Image: "./assets/images/vernon-raineil-cenzon-1168565-unsplash.jpg",
+    dName: "Crab Stew",
+    restauraunt: "Red Lobster",
+    rating: 4
   }
 ];
 
