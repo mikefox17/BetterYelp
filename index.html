@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Bone Apple Tea</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -14,82 +14,127 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+
   </head>
   <body>
-    <div class="container text-light">
-      <div class="jumbotron">
-        <h1 class="display-3">Better Yelp?</h1>
-        
-        <br />
-        <div class="input-group">
-          <div class="input-group-prepend"></div>
-          <!-- Input for food id "#foodSearch" -->
-          <input
-            type="text"
-            class="form-control"
-            id="foodSearch"
-            placeholder="Search Food/Restaurant"
-          />
-          <!-- Input for location id "#locationSearch" -->
-          <input
-            type="text"
-            class="form-control"
-            id="locationSearch"
-            placeholder="Search by location"
-          />
-          <!-- Submit button id "#searchBtn" -->
-          <button class="btn btn-primary" id="searchBtn">Search</button>
-        </div>
+      <div class='blurred-container'>
+          <div class="motto">
+              <div>Bone</div>
+              <div class="border no-right-border">Apple</div>
+              <br>
+              <div class="border">Tea</div>
+              
+          </div>
+          <div class="img-src" style="background-image: url('assets/images/a1.jpg')"></div>
+          <div class='img-src blur' style="background-image: url('assets/images/a1.jpg')"></div>
       </div>
+      <br>
+      
+  </div>     
+    <div class="container text-light">
+      
+          <div class="input-group-prepend">
+          <!-- Input for food id "#foodSearch" -->
+                  <div class="autocomplete">
+            
+                    <input
+                      type="text"
+                      
+                      id="foodSearch"
+                      placeholder="Search by dish"
+                    />
+                      
+                      <div class="dialog"></div>
+                  </div>
+                <!-- Input for location id "#locationSearch" -->
+                <div class="autocomplete2">
+                        <input
+                          type="text"
+                          
+                          id="locationSearch"
+                          placeholder="Search by location"
+                        />
+
+                </div>
+                <div class="button">
+                <button id="searchBtn"><i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
+          <!-- Submit button id "#searchBtn" -->
+        </div>
+        <hr>
+
       <br><br>
       <div class="card" id="card1">
-        <div class="card-header text-dark"><h3>Featured Dishes</h3></div>
+        <div class="card-header text-light"><h3>Featured Dishes</h3></div>
         <!-- JS to populate popular dishes and photos id "#popDishes" -->
         <div class="card-body card-group" id="popDishes"></div>
       </div>
       <!-- Button trigger modal -->
       <br /><br />
       <hr />
-        <div>
-            <form>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Dish Name</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Restaurant Name</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Address</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                </div>
-                
-                <select class="form-control" id="sel1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            
-            </form>
-            <br>    
+      <p>
+        
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="collapseBTN"><i class="fa fa-pencil" aria-hidden="true"></i>
+
+              Leave a Review</button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
             <div>
-                <input type="file" onchange="previewFile()"><br>
-                <img src="" height="100" width = "100" alt="Image preview...">
+                <form>
+    
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Dish Name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Dish Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Restaurant Name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Restaurant Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Address</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Location">
+                    </div>
+                    
+                  
+                    <div class="form-group" id="dropDownRating">
+                        <label for="sel1" id="ratingLabel">Rating</label>
+                        
+
+                    <select class="form-control" id="sel1"> 
+                      
+                        <option>5</option>
+                        <option>4</option>
+                        <option>3</option>
+                        <option>2</option>
+                        <option>1</option>
+                    </select>
+                  </div>
+                </form>
+                <br>    
+                <div id="imgPreview">
+                    <input type="file" onchange="previewFile()"><br>
+                    <img src="" height="100" width = "100" alt="Image preview...">
+                </div>
             </div>
-        </div>
-              <!--
-                Needs a condition forcing user to fill all fields before uploading image id "#uploadImg
-              -->
-              <button type="button" class="btn btn-primary" id="uploadImg">
-                Upload Image
-              </button>
+                  <!--
+                    Needs a condition forcing user to fill all fields before uploading image id "#uploadImg
+                  -->
+                  <br>
+                  <button id="uploadImg"><i class="fa fa-upload" data-toggle="collapse" aria-hidden="true"></i>
+    
+                    Upload Image
+                  </button>
+                  
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+        
   </div>
   <br><br><br><br>
 
@@ -112,72 +157,41 @@
       <div class="row text-center text-md-left mt-3 pb-3">
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-          <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit.</p>
+          <h6 class="text-uppercase mb-4 font-weight-bold">Bone Apple Tea</h6>
+          <h5>Delivering the tasty information that you need!</h5>
         </div>
         <!-- Grid column -->
         <hr class="w-100 clearfix d-md-none">
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
-          <p>
-            <a href="#!">MDBootstrap</a>
-          </p>
-          <p>
-            <a href="#!">MDWordPress</a>
-          </p>
-          <p>
-            <a href="#!">BrandFlow</a>
-          </p>
-          <p>
-            <a href="#!">Bootstrap Angular</a>
-          </p>
-        </div>
+        
         <!-- Grid column -->
         <hr class="w-100 clearfix d-md-none">
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
-          <p>
-            <a href="#!">Your Account</a>
-          </p>
-          <p>
-            <a href="#!">Become an Affiliate</a>
-          </p>
-          <p>
-            <a href="#!">Shipping Rates</a>
-          </p>
-          <p>
-            <a href="#!">Help</a>
-          </p>
-        </div>
+        
         <!-- Grid column -->
         <hr class="w-100 clearfix d-md-none">
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
           <p>
-            <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            <i class="fa fa-home mr-3"></i><h8> Washington, DC 20001, US</h8>
           <p>
-            <i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
-          <p>
-            <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
-          <p>
-            <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+            <i class="fa fa-envelope mr-3"></i> <h8>info@gmail.com</h8>
+          
+            
         </div>
         <!-- Grid column -->
       </div>
       <!-- Footer links -->
-      <hr>
+      <br>
       <!-- Grid row -->
       <div class="row d-flex align-items-center">
         <!-- Grid column -->
         <div class="col-md-7 col-lg-8">
           <!--Copyright-->
-          <p class="text-center text-md-left">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/">
-              <strong> MDBootstrap.com</strong>
+          <p class="text-center text-md-left">© 2019 Copyright:
+            <a href="boneappletea.com" id="link">
+              <strong> Bone Apple Tea</strong>
             </a>
           </p>
         </div>
@@ -189,22 +203,22 @@
             <ul class="list-unstyled list-inline">
               <li class="list-inline-item">
                 <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                  <i class="fa fa-facebook"></i>
+                  <a href="http://facebook.com"><i class="fa fa-lg fa-facebook" id="fb"></i></a>
                 </a>
               </li>
               <li class="list-inline-item">
                 <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                  <i class="fa fa-twitter"></i>
+                  <a href="http://twitter.com"><i class="fa fa-twitter" id="twitter"></i></a>
                 </a>
               </li>
               <li class="list-inline-item">
                 <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                  <i class="fa fa-google-plus"></i>
+                  <a href="http://github.com"><i class="fa fa-github" id="github"></i></a>
                 </a>
               </li>
               <li class="list-inline-item">
                 <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                  <i class="fa fa-linkedin"></i>
+                  <a href="http:linkedin.com"<i class="fa fa-linkedin" id="linkedin"></i>
                 </a>
               </li>
             </ul>
@@ -241,4 +255,4 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZhqhST3LzYsJ1rKWV1tXYjWU3a901rH8&libraries=places&callback=initAutocomplete"
          async defer></script>
   <script src="assets/javascript/app.js"></script>
-</html>
+</html><!DOCTYPE html>
