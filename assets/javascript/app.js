@@ -138,15 +138,16 @@ function previewFile() {
 
   reader.onloadend = function() {
     preview.src = reader.result;
-    console.log("First one :" + reader.result);
+    //console.log("First one :" + reader.result);
   };
 
   if (file) {
     reader.readAsDataURL(file); //reads the data as a URL
-    console.log("Second: " + reader.readAsDataURL(file));
+    //console.log("Second: " + reader.readAsDataURL(file));
   } else {
     preview.src = "";
   }
+  return file;
 }
 
 previewFile();
@@ -199,7 +200,7 @@ button.onclick = function() {
   const storage = firebase.storage();
   const storageref = storage.ref();
   const searchRef = storageref.child("uploads");
-  const filename = file.name;
+  const filename = imgname;
   const fileRef = searchRef.child(filename);
 
   // console.log('image', file)
