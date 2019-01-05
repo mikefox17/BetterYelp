@@ -26,7 +26,8 @@ image {
 }
 
 .popDishesImage {
-  height: 40%;
+  height: 200px;
+  width: 200px;
   margin: 5px;
 }
 .dataReturn {

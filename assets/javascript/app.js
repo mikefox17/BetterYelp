@@ -61,65 +61,65 @@ previewFile(); //calls the function named previewFile()
 
 // Initializes googles api, needs a call back function to actually work
 
-var popDishes = [
-  {
-    Image: "./assets/images/i1.png",
-    dName: "mango cakes",
-    restauraunt: "Kung Fu Tea",
-    rating: 5
-  },
-  {
-    Image: "./assets/images/i1.png",
-    dName: "Pho",
-    restauraunt: "Pho 24",
-    rating: 5
-  }
-];
+// var popDishes = [
+//   {
+//     Image: "./assets/images/i1.png",
+//     dName: "mango cakes",
+//     restauraunt: "Kung Fu Tea",
+//     rating: 5
+//   },
+//   {
+//     Image: "./assets/images/i1.png",
+//     dName: "Pho",
+//     restauraunt: "Pho 24",
+//     rating: 5
+//   }
+// ];
 
-for (var i = 0; i < popDishes.length; i++) {
-  var picSection = document.getElementById("popDishes");
-  var foodPics = document.createElement("IMG");
-  foodPics.setAttribute("src", popDishes[i].Image);
-  foodPics.className += "card-img-top popDishesImage";
-  var foodName = document.createElement("h6");
-  foodName.className += "card-title text-dark";
-  var foodNameName = document.createTextNode("Menu Item");
-  foodName.appendChild(foodNameName);
-  var foodNameContent = document.createElement("p");
-  // var foodNameWords = document.createTextNode(popDishes[i].dName);
-  foodNameContent.className += "dataReturn";
-  foodNameContent.innerHTML = popDishes[i].dName;
-  var foodRating = document.createElement("h6");
-  var foodRatingRating = document.createTextNode("Rating");
-  foodRating.className += "card-title text-dark";
-  foodRating.appendChild(foodRatingRating);
-  var foodRatingContent = document.createElement("p");
-  // var foodRatingWords = document.createTextNode(popDishes[i].rating);
-  foodRatingContent.className += "dataReturn";
-  foodRatingContent.innerHTML = popDishes[i].rating;
-  var foodRest = document.createElement("h6");
-  foodRest.className += "card-title text-dark";
-  var foodRestRest = document.createTextNode("Restauraunt");
-  foodRest.appendChild(foodRestRest);
-  foodRestaurauntContent = document.createElement("p");
-  // foodRestaurauntWords = document.createTextNode(popDishes[i].restauraunt);
-  foodRestaurauntContent.className += "dataReturn";
-  foodRestaurauntContent.innerHTML = popDishes[i].restauraunt;
+// for (var i = 0; i < popDishes.length; i++) {
+//   var picSection = document.getElementById("popDishes");
+//   var foodPics = document.createElement("IMG");
+//   foodPics.setAttribute("src", popDishes[i].Image);
+//   foodPics.className += "card-img-top popDishesImage";
+//   var foodName = document.createElement("h6");
+//   foodName.className += "card-title text-dark";
+//   var foodNameName = document.createTextNode("Menu Item");
+//   foodName.appendChild(foodNameName);
+//   var foodNameContent = document.createElement("p");
+//   // var foodNameWords = document.createTextNode(popDishes[i].dName);
+//   foodNameContent.className += "dataReturn";
+//   foodNameContent.innerHTML = popDishes[i].dName;
+//   var foodRating = document.createElement("h6");
+//   var foodRatingRating = document.createTextNode("Rating");
+//   foodRating.className += "card-title text-dark";
+//   foodRating.appendChild(foodRatingRating);
+//   var foodRatingContent = document.createElement("p");
+//   // var foodRatingWords = document.createTextNode(popDishes[i].rating);
+//   foodRatingContent.className += "dataReturn";
+//   foodRatingContent.innerHTML = popDishes[i].rating;
+//   var foodRest = document.createElement("h6");
+//   foodRest.className += "card-title text-dark";
+//   var foodRestRest = document.createTextNode("Restauraunt");
+//   foodRest.appendChild(foodRestRest);
+//   foodRestaurauntContent = document.createElement("p");
+//   // foodRestaurauntWords = document.createTextNode(popDishes[i].restauraunt);
+//   foodRestaurauntContent.className += "dataReturn";
+//   foodRestaurauntContent.innerHTML = popDishes[i].restauraunt;
 
-  var foodCardIMG = document.createElement("div");
-  var foodCardBody = document.createElement("div");
-  foodCardBody.className += "card-body";
-  foodCardIMG.className += "card col-4";
-  foodCardIMG.appendChild(foodPics);
-  foodCardBody.appendChild(foodName);
-  foodCardBody.appendChild(foodNameContent);
-  foodCardBody.appendChild(foodRating);
-  foodCardBody.appendChild(foodRatingContent);
-  foodCardBody.appendChild(foodRest);
-  foodCardBody.appendChild(foodRestaurauntContent);
-  foodCardIMG.appendChild(foodCardBody);
-  picSection.appendChild(foodCardIMG);
-}
+//   var foodCardIMG = document.createElement("div");
+//   var foodCardBody = document.createElement("div");
+//   foodCardBody.className += "card-body";
+//   foodCardIMG.className += "card col-4";
+//   foodCardIMG.appendChild(foodPics);
+//   foodCardBody.appendChild(foodName);
+//   foodCardBody.appendChild(foodNameContent);
+//   foodCardBody.appendChild(foodRating);
+//   foodCardBody.appendChild(foodRatingContent);
+//   foodCardBody.appendChild(foodRest);
+//   foodCardBody.appendChild(foodRestaurauntContent);
+//   foodCardIMG.appendChild(foodCardBody);
+//   picSection.appendChild(foodCardIMG);
+// }
 
 // Code for google api and upload image goes here
 
@@ -127,14 +127,14 @@ for (var i = 0; i < popDishes.length; i++) {
 function initAutocomplete() {
   var input = document.getElementById("locationSearch");
   new google.maps.places.Autocomplete(input);
-  console.log(input);
+  // console.log(input);
 }
 
 function previewFile() {
   var preview = document.querySelector("img"); //selects the query named img
   var file = document.querySelector("input[type=file]").files[0]; //sames as here
   var reader = new FileReader();
-  console.log(file);
+  // console.log(file);
 
   reader.onloadend = function() {
     preview.src = reader.result;
@@ -152,22 +152,34 @@ function previewFile() {
 previewFile();
 
 button.onclick = function() {
-  var dishname = document.getElementById("dish").value.trim();
+  var dishname = document
+    .getElementById("dish")
+    .value.trim()
+    .toUpperCase();
   console.log(dishname);
-  var restname = document.getElementById("Restaurant").value.trim();
+  var restname = document
+    .getElementById("Restaurant")
+    .value.trim()
+    .toUpperCase();
   console.log(restname);
-  var add = document.getElementById("Address").value.trim();
+  var add = document
+    .getElementById("Address")
+    .value.trim()
+    .toUpperCase();
   console.log(add);
-  var dateadded = moment().format("MM/DD/YYYY");
+  var dateadded = moment().format("MMDDYYYYhhmmss");
   console.log(dateadded);
   var rating = document.getElementById("rating").value;
   console.log(rating);
+  var imgname = dishname + "_" + dateadded;
+  console.log(imgname);
 
   var food = {
     foodname: dishname,
     Restaurant: restname,
     Address: add,
-    lastmodate: dateadded
+    lastmodate: dateadded,
+    rating: rating
   };
 
   database.ref().push(food);
@@ -210,85 +222,52 @@ button.onclick = function() {
 //     console.log("The read failed: " + errorObject.code);
 //   });
 
-var searchbutton = document.getElementById("searchBtn");
+// var searchbutton = document.getElementById("searchBtn");
 
-searchbutton.onclick = function() {
-  var location = document.getElementById("locationSearch").value;
-  var locationInt = parseInt(location);
-  var locSearch = location.search(",");
-  console.log(locSearch);
+// searchbutton.onclick = function() {
+//   var location = document.getElementById("locationSearch").value;
+//   var locationInt = parseInt(location);
+//   var locSearch = location.search(",");
+//   // console.log(locSearch);
 
-  console.log(locationInt);
+//   // console.log(locationInt);
 
-  if (Number.isInteger(parseInt(locSearch))) {
-    locationarray = location.split(",");
-    console.log(locationarray);
-    locationarray = locationarray.reverse();
-    console.log(locationarray);
+//   if (Number.isInteger(parseInt(locSearch))) {
+//     locationarray = location.split(",");
+//     // console.log(locationarray);
+//     locationarray = locationarray.reverse();
+//     // console.log(locationarray);
 
-    var country = locationarray[0];
-    var city = locationarray[2].trim();
-    var patt1 = /[0-9]/g;
-    var zip = locationarray[1].match(patt1);
-    console.log(zip);
+//     var country = locationarray[0];
+//     var city = locationarray[2].trim();
+//     var patt1 = /[0-9]/g;
+//     var zip = locationarray[1].match(patt1);
+//     // console.log(zip);
 
-    if (Number.isInteger(parseInt(zip))) {
-      var stateAdd = locationarray[1].trim().split(" ");
-      console.log(stateAdd);
-      var state = stateAdd[0].trim();
-      var zipcode = stateAdd[1].trim();
+//     if (Number.isInteger(parseInt(zip))) {
+//       var stateAdd = locationarray[1].trim().split(" ");
+//       // console.log(stateAdd);
+//       var state = stateAdd[0].trim();
+//       var zipcode = stateAdd[1].trim();
 
-      console.log("Country: " + country);
-      console.log("State: " + state);
-      console.log("City: " + city);
-      console.log("Zipcode: " + zipcode);
-    } else {
-      var state = locationarray[1].trim();
-      var zipcode = "";
-      console.log("Country: " + country);
-      console.log("State: " + state);
-      console.log("City: " + city);
-      console.log("Zipcode: " + zipcode);
-    }
-  } else if (Number.isInteger(locationInt)) {
-    var zipcode = locationInt;
-    console.log("Zipcode: " + zipcode);
-  }
+//       // console.log("Country: " + country);
+//       // console.log("State: " + state);
+//       // console.log("City: " + city);
+//       // console.log("Zipcode: " + zipcode);
+//     } else {
+//       var state = locationarray[1].trim();
+//       var zipcode = "";
+//       // console.log("Country: " + country);
+//       // console.log("State: " + state);
+//       // console.log("City: " + city);
+//       // console.log("Zipcode: " + zipcode);
+//     }
+//   } else if (Number.isInteger(locationInt)) {
+//     var zipcode = locationInt;
+//     // console.log("Zipcode: " + zipcode);
+//   }
 
-  var dishsearch = document.getElementById("foodSearch").value.trim();
-
-  console.log(dishsearch);
-
-  // database.ref().on("value", function(snapshot) {
-  //     // We are now inside our .on function...
-  var firebaseurl =
-    "https://firebasestorage.googleapis.com/v0/b/betteryelp.appspot.com/o/uploads%2F" +
-    name +
-    "?alt=media";
-  //     // Console.log the "snapshot" value (a point-in-time representation of the database)
-  //     console.log(snapshot.val());
-  //     // This "snapshot" allows the page to get the most current values in firebase.
-
-  //   // If any errors are experienced, log them to console.
-  //   }, function(errorObject) {
-  //     console.log("The read failed: " + errorObject.code);
-  //   });
-
-  var ref = firebase.database().ref();
-
-  //console.log(ref);
-  ref
-    .orderByChild("foodname")
-    .equalTo(dishsearch)
-    .on("value", function(snapshot) {
-      console.log(snapshot.val());
-
-      console.log(Object.values(snapshot.val()));
-
-      var firebaseobject = Object.values(snapshot.val());
-      console.log(firebaseobject.length);
-    });
-};
+// };
 
 $("#searchBtn").on("click", function() {
   document.getElementById("popDishes").style.display = "none";
@@ -303,120 +282,237 @@ $("#searchBtn").on("click", function() {
   var location = document.getElementById("locationSearch").value;
   var locationInt = parseInt(location);
   var locSearch = location.search(",");
-  console.log(locSearch);
+  // console.log(locSearch);
 
-  console.log(locationInt);
+  // console.log(locationInt);
 
   if (Number.isInteger(parseInt(locSearch))) {
     locationarray = location.split(",");
-    console.log(locationarray);
+    // console.log(locationarray);
     locationarray = locationarray.reverse();
-    console.log(locationarray);
+    // console.log(locationarray);
 
     var country = locationarray[0];
     var city = locationarray[2].trim();
     var patt1 = /[0-9]/g;
     var zip = locationarray[1].match(patt1);
-    console.log(zip);
+    // console.log(zip);
 
     if (Number.isInteger(parseInt(zip))) {
       var stateAdd = locationarray[1].trim().split(" ");
-      console.log(stateAdd);
+      // console.log(stateAdd);
       var state = stateAdd[0].trim();
       var zipcode = stateAdd[1].trim();
 
-      console.log("Country: " + country);
-      console.log("State: " + state);
-      console.log("City: " + city);
-      console.log("Zipcode: " + zipcode);
+      // console.log("Country: " + country);
+      // console.log("State: " + state);
+      // console.log("City: " + city);
+      // console.log("Zipcode: " + zipcode);
     } else {
       var state = locationarray[1].trim();
       var zipcode = "";
-      console.log("Country: " + country);
-      console.log("State: " + state);
-      console.log("City: " + city);
-      console.log("Zipcode: " + zipcode);
+      // console.log("Country: " + country);
+      // console.log("State: " + state);
+      // console.log("City: " + city);
+      // console.log("Zipcode: " + zipcode);
     }
   } else if (Number.isInteger(locationInt)) {
     var zipcode = locationInt;
-    console.log("Zipcode: " + zipcode);
+    // console.log("Zipcode: " + zipcode);
   }
 
-  var queryURL =
-    "https://openmenu.com/api/v2/search.php?" +
-    "key=498456f1-0156-11e9-8d62-525400552a35&s=" +
-    dish +
-    "&" +
-    "postal_code=" +
-    zipcode +
-    "&city=" +
-    city +
-    "&country=US";
+  var dishsearch = document
+    .getElementById("foodSearch")
+    .value.trim()
+    .toUpperCase();
 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    var data = response.response.result;
-    console.log(data);
+  console.log(dishsearch);
 
-    for (var i = 0; i < data.items.length; i++) {
-      var responseDiv = document.getElementById("searchDishes");
+  var ref = firebase.database().ref();
+  var firebaseobject = [];
 
-      var responseDataBigDiv = document.createElement("div");
-      responseDataBigDiv.style.width = "100%";
-      responseDataBigDiv.className = "bigDiv";
+  //console.log(ref);
+  ref
+    .orderByChild("foodname")
+    .equalTo(dishsearch)
+    .on("value", function(snapshot) {
+      console.log(snapshot.val());
 
-      var responseDataLeft = document.createElement("div");
-      responseDataLeft.className += "innerDivs";
-      responseDataLeft.style.width = "40%";
-      var responseRest = document.createElement("h4");
-      var responseRestWords = document.createTextNode(
-        data.items[i].restaurant_name
+      console.log(Object.values(snapshot.val()));
+
+      firebaseobject = Object.values(snapshot.val());
+      console.log(firebaseobject.length);
+      console.log(
+        firebaseobject[0].foodname + "_" + firebaseobject[0].lastmodate
       );
-      responseRest.appendChild(responseRestWords);
 
-      var responseDataPic = document.createElement("IMG");
-      responseDataPic.setAttribute("src", "https://via.placeholder.com/150");
+      var queryURL =
+        "https://openmenu.com/api/v2/search.php?" +
+        "key=498456f1-0156-11e9-8d62-525400552a35&s=" +
+        dish +
+        "&" +
+        "postal_code=" +
+        zipcode +
+        "&city=" +
+        city +
+        "&country=US";
 
-      responseDataLeft.appendChild(responseRest);
-      responseDataLeft.appendChild(responseDataPic);
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        var data = response.response.result;
+        console.log(data);
 
-      var responseDataRight = document.createElement("div");
-      responseDataRight.className = "innerDivs";
-      responseDataRight.style.width = "40%";
+        for (var i = 0; i < data.items.length; i++) {
+          var responseDiv = document.getElementById("searchDishes");
 
-      var responseDishName = document.createElement("h4");
-      var responseDishNameWords = document.createTextNode(
-        data.items[i].menu_item_name
-      );
-      responseDishName.appendChild(responseDishNameWords);
+          var responseDataBigDiv = document.createElement("div");
+          responseDataBigDiv.style.width = "100%";
+          responseDataBigDiv.className = "bigDiv";
 
-      var responseRestWebsite = document.createElement("a");
-      responseRestWebsite.setAttribute("href", data.items[i].website_url);
-      responseRestWebsite.setAttribute("target", "_blank");
-      var responseRestWebsiteLink = document.createTextNode("Website");
-      responseRestWebsite.appendChild(responseRestWebsiteLink);
+          var responseDataLeft = document.createElement("div");
+          responseDataLeft.className += "innerDivs";
+          responseDataLeft.style.width = "40%";
+          var responseRest = document.createElement("h4");
+          var responseRestWords = document.createTextNode(
+            data.items[i].restaurant_name
+          );
+          responseRest.appendChild(responseRestWords);
+          var imageName =
+            firebaseobject[0].foodname + "_" + firebaseobject[0].lastmodate;
+          var firebaseurl =
+            "https://firebasestorage.googleapis.com/v0/b/betteryelp.appspot.com/o/uploads%2F" +
+            imageName +
+            "?alt=media";
+          console.log(firebaseurl);
+          var responseDataPic = document.createElement("IMG");
+          responseDataPic.setAttribute("src", firebaseurl);
+          responseDataPic.setAttribute("height", "120px");
 
-      var responseRestMenu = document.createElement("a");
-      responseRestMenu.setAttribute("href", "www.google.com");
-      responseRestMenu.setAttribute("target", "_blank");
-      var responseRestMenuLink = document.createTextNode("Menu");
-      responseRestMenu.appendChild(responseRestMenuLink);
+          responseDataLeft.appendChild(responseRest);
+          responseDataLeft.appendChild(responseDataPic);
 
-      var responseRestRating = document.createElement("h4");
-      var responseRestRatingNum = document.createTextNode("5 Stars");
-      responseRestRating.appendChild(responseRestRatingNum);
+          var responseDataRight = document.createElement("div");
+          responseDataRight.className = "innerDivs";
+          responseDataRight.style.width = "40%";
 
-      responseDataRight.appendChild(responseDishName);
-      responseDataRight.appendChild(responseRestWebsite);
-      responseDataRight.appendChild(responseRestMenu);
-      responseDataRight.appendChild(responseRestRating);
+          var responseDishName = document.createElement("h4");
+          var responseDishNameWords = document.createTextNode(
+            data.items[i].menu_item_name
+          );
+          responseDishName.appendChild(responseDishNameWords);
 
-      responseDataBigDiv.appendChild(responseDataLeft);
-      responseDataBigDiv.appendChild(responseDataRight);
+          var responseRestWebsite = document.createElement("a");
+          responseRestWebsite.setAttribute("href", data.items[i].website_url);
+          responseRestWebsite.setAttribute("target", "_blank");
+          var responseRestWebsiteLink = document.createTextNode("Website");
+          responseRestWebsite.appendChild(responseRestWebsiteLink);
 
-      responseDiv.appendChild(responseDataBigDiv);
-    }
-  });
+          var webMenBreak = document.createElement("br");
+
+          var responseRestMenu = document.createElement("a");
+          responseRestMenu.setAttribute("href", "www.google.com");
+          responseRestMenu.setAttribute("target", "_blank");
+          var responseRestMenuLink = document.createTextNode("Menu");
+          responseRestMenu.appendChild(responseRestMenuLink);
+
+          var responseRestRating = document.createElement("h4");
+          var responseRestRatingNum = document.createTextNode("5 Stars");
+          responseRestRating.appendChild(responseRestRatingNum);
+
+          responseDataRight.appendChild(responseDishName);
+          responseDataRight.appendChild(responseRestWebsite);
+          responseDataRight.appendChild(webMenBreak);
+          responseDataRight.appendChild(responseRestMenu);
+          responseDataRight.appendChild(responseRestRating);
+
+          responseDataBigDiv.appendChild(responseDataLeft);
+          responseDataBigDiv.appendChild(responseDataRight);
+
+          responseDiv.appendChild(responseDataBigDiv);
+        }
+      });
+    });
 });
+
+database
+  .ref()
+  .orderByChild("dateadded")
+  .on(
+    "value",
+    function(snapshot) {
+      // We are now inside our .on function...
+
+      // Console.log the "snapshot" value (a point-in-time representation of the database)
+      console.log(snapshot.val());
+      // This "snapshot" allows the page to get the most current values in firebase.
+
+      console.log(Object.values(snapshot.val()));
+
+      var firebaseobject = Object.values(snapshot.val());
+      console.log(firebaseobject.length);
+      // firebaseobject = firebaseobject.reverse;
+      // console.log(firebaseobject);
+
+      for (var i = 26; i < 27; i++) {
+        var picSection = document.getElementById("popDishes");
+
+        var foodPics = document.createElement("IMG");
+
+        var ImageName =
+          firebaseobject[i].foodname + "_" + firebaseobject[i].lastmodate;
+        console.log(ImageName);
+        var Image =
+          "https://firebasestorage.googleapis.com/v0/b/betteryelp.appspot.com/o/uploads%2F" +
+          ImageName +
+          "?alt=media";
+        console.log(Image);
+
+        foodPics.className += "card-img-top popDishesImage";
+        foodPics.setAttribute("src", Image);
+
+        var foodName = document.createElement("h6");
+        foodName.className += "card-title text-dark";
+        var foodNameName = document.createTextNode("Menu Item");
+        foodName.appendChild(foodNameName);
+        var foodNameContent = document.createElement("p");
+        // var foodNameWords = document.createTextNode(popDishes[i].dName);
+        foodNameContent.className += "dataReturn";
+        foodNameContent.innerHTML = firebaseobject[i].foodname;
+        var foodRating = document.createElement("h6");
+        var foodRatingRating = document.createTextNode("Rating");
+        foodRating.className += "card-title text-dark";
+        foodRating.appendChild(foodRatingRating);
+        var foodRatingContent = document.createElement("p");
+        // var foodRatingWords = document.createTextNode(popDishes[i].rating);
+        foodRatingContent.className += "dataReturn";
+        foodRatingContent.innerHTML = firebaseobject[i].rating;
+        var foodRest = document.createElement("h6");
+        foodRest.className += "card-title text-dark";
+        var foodRestRest = document.createTextNode("Restauraunt");
+        foodRest.appendChild(foodRestRest);
+        foodRestaurauntContent = document.createElement("p");
+        // foodRestaurauntWords = document.createTextNode(popDishes[i].restauraunt);
+        foodRestaurauntContent.className += "dataReturn";
+        foodRestaurauntContent.innerHTML = firebaseobject[i].Restaurant;
+        console.log(foodName);
+        var foodCardIMG = document.createElement("div");
+        var foodCardBody = document.createElement("div");
+        foodCardBody.className += "card-body";
+        foodCardIMG.className += "card col-4";
+        foodCardIMG.appendChild(foodPics);
+        foodCardBody.appendChild(foodName);
+        foodCardBody.appendChild(foodNameContent);
+        foodCardBody.appendChild(foodRating);
+        foodCardBody.appendChild(foodRatingContent);
+        foodCardBody.appendChild(foodRest);
+        foodCardBody.appendChild(foodRestaurauntContent);
+        foodCardIMG.appendChild(foodCardBody);
+        picSection.appendChild(foodCardIMG);
+      }
+    },
+    function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    }
+  );
